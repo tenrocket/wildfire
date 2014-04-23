@@ -10,7 +10,7 @@
 		= f.date_select :fire_date
 		%br
 		= f.label :location_id
-		= f.select :location_id, Location.all.collect {|l| [l.city, l.state] }
+		= f.select :location_id, Location.all.collect {|l| [l.city, l.id] }
 		%br
 		%br
 		= f.submit "Post Wildfire Attributes"

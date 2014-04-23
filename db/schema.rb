@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422182840) do
+ActiveRecord::Schema.define(version: 20140423134537) do
 
   create_table "locations", force: true do |t|
     t.string "state"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140422182840) do
   create_table "wildfires", force: true do |t|
     t.string  "fire_type"
     t.date    "fire_date"
-    t.string  "location_id"
+    t.integer "location_id", limit: 255
     t.integer "fire_size"
   end
 
