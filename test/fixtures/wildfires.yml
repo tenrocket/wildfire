@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  size: MyString
+  type: 
+  date: 2014-04-22
+  location_id: MyString
+  integer: MyString
+
+two:
+  size: MyString
+  type: 
+  date: 2014-04-22
+  location_id: MyString
+  integer: MyString

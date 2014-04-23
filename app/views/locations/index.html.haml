@@ -1,0 +1,14 @@
+%h1 Wildfire Locations
+
+- @locations.each do |l|
+
+	= "#{l.city}, #{l.state}"
+	%br
+
+	= button_to "Delete", "/locations/#{l.id}", {:action => "delete", :method => :delete}
+	%br
+= button_to "Add Location", new_location_path, method: "get"
+%br
+= form_tag locations_path, method: "get" do
+	= text_field_tag :search, params[:search], placeholder: "Search by city or state"
+	= submit_tag "Search", :name => nil

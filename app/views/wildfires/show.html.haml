@@ -1,0 +1,12 @@
+%h1= Remove Wildfire
+%br
+%h3= @chosen_wildfire.location_id
+%h3= @chosen_wildfire.fire_date
+%h3= @chosen_wildfire.fire_type
+%h3= @chosen_wildfire.fire_size
+%br
+
+%ul
+	-@chosen_wildfire
+	%button_to
+		=link_to "Remove Wildfire", "/wildfires/#{@chosen_wildfire.id}", {:action => "delete", :method => :delete}

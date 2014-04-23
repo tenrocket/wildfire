@@ -1,0 +1,16 @@
+= form_for @new_wildfire, url: wildfires_path do |f|
+
+		= f.label :fire_size
+		= f.text_field :fire_size
+		%br
+		= f.label :fire_type
+		= f.text_field :fire_type
+		%br
+		= f.label :fire_date
+		= f.date_select :fire_date
+		%br
+		= f.label :location_id
+		= f.select :location_id, Location.all.collect {|l| [l.city, l.state] }
+		%br
+		%br
+		= f.submit "Post Wildfire Attributes"

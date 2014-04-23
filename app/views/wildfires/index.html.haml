@@ -1,0 +1,24 @@
+%h1 Wildfires
+
+- @wildfires.each do |w|
+
+	Location:
+	= w.location_id
+	%br
+	Type:
+	= w.fire_type
+	%br
+	Size (in acres):
+	= w.fire_size
+	%br
+	Date of Occurrence:
+	= w.fire_date
+	%br
+
+	= button_to "Delete", "/wildfires/#{w.id}", {:action => "delete", :method => :delete}
+	%br
+= button_to "Log New Fire", new_wildfire_path, method: "get"
+%br
+= form_tag wildfires_path, method: "get" do
+	= text_field_tag :search, params[:search], placeholder: "Search by any field"
+	= submit_tag "Search", :name => nil

@@ -1,0 +1,9 @@
+%h1= Remove Location
+%h3= @chosen_location.state
+%h3= @chosen_location.city
+%br
+
+%ul
+	-@chosen_location
+	%button_to
+		=link_to "Remove Location", "/locations/#{@chosen_location.id}", {:action => "delete", :method => :delete}
