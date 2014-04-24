@@ -8,6 +8,11 @@ class WildfiresController < ApplicationController
 	  end
 	end
 
+	def search
+		@wildfires = Wildfire.search(params[:search])
+		render wildfires_path
+	end
+
 	def new
 		@new_wildfire = Wildfire.new
 	end
@@ -25,9 +30,10 @@ class WildfiresController < ApplicationController
 		@chosen_wildfire = Wildfire.find(params[:id])
 	end
 
-	def select_deleted_wildfire
-		@chosen_wildfire = Wildfire.find(params[:id])
-		@deleted_wildfire = Wildfire.find(params[:id])
+	def download_wildfire_photo
+		@wildfire = Wildfire.find(params[:id])
+		file = @wildfire.wildfire_photo
+		send_file file.path
 	end
 
 	def destroy

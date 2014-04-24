@@ -3,8 +3,7 @@
 - @wildfires.each do |w|
 
 	Location:
-	= w.location.city
-	= w.location.state
+	= "#{w.location.city}, #{w.location.state}"
 	%br
 	Type:
 	= w.fire_type
@@ -23,3 +22,21 @@
 = form_tag wildfires_path, method: "get" do
 	= text_field_tag :search, params[:search], placeholder: "Search by any field"
 	= submit_tag "Search", :name => nil
+
+%br
+= form_tag wildfires_path, method: "get" do
+	= label_tag "Type"
+	= select_tag 'search[fire_type]', options_for_select(Wildfire.pluck(:fire_type)), include_blank: true
+	%br
+= form_tag wildfires_path, method: "get" do
+	= label_tag "Size"
+	= select_tag 'search[fire_size]', options_for_select(Wildfire.pluck(:fire_size)), include_blank: true
+	%br
+= form_tag wildfires_path, method: "get" do
+	= label_tag "Date"
+	= select_tag 'search[fire_date]', options_for_select(Wildfire.pluck(:fire_date)), include_blank: true
+	%br
+	%br
+	= submit_tag "Search"
+
+

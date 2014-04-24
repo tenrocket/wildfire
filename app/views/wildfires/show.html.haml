@@ -10,3 +10,14 @@
 	-@chosen_wildfire
 	%button_to
 		=link_to "Remove Wildfire", "/wildfires/#{@chosen_wildfire.id}", {:action => "delete", :method => :delete}
+
+
+.container
+	= @chosen_wildfire.location_id
+	= @chosen_wildfire.fire_date
+%br
+
+= link_to "Wildfire Photo", 
+	download_wildfire_photo_wildfire_path
+=	image_tag @wildfire.wildfire_photo.url
+

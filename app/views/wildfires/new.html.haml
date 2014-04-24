@@ -13,4 +13,6 @@
 		= f.select :location_id, Location.all.collect {|l| [l.city, l.id] }
 		%br
 		%br
+		= f.file_field :wildfire_photo
+		%br
 		= f.submit "Post Wildfire Attributes"
